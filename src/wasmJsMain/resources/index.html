@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Comma separated string converter</title>
+    <style>
+        #textAreaContainer {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+        }
+        textarea {
+            width: 40%;
+            height: 600px;
+        }
+
+        #selectContainer {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="textAreaContainer">
+        <textarea aria-label="Input Text Container" id="inputText" oninput="convertStrings()"></textarea>
+        <textarea aria-label="Output Text Container" id="outputText"></textarea>
+    </div>
+    <div id="selectContainer">
+        <select aria-label="Quote Selector" id="quoteSelector" onchange="convertStrings()">
+            <option value="double">Double Quotes</option>
+            <option value="single">Single Quotes</option>
+            <option value="none">No Quotes</option>
+        </select>
+    </div>
+</div>
+<script src="quotify-wasm.js"></script>
+</body>
+</html>
