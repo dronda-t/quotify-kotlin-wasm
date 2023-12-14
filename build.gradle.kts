@@ -21,6 +21,6 @@ kotlin {
     wasmJs {
         binaries.executable()
         browser()
-//        applyBinaryen()
+        applyBinaryen()
     }
 }

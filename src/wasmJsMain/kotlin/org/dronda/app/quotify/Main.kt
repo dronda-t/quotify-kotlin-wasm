@@ -4,6 +4,16 @@ import kotlinx.browser.document
 import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.HTMLTextAreaElement
 
+fun main() {
+    quoteSelector!!.addEventListener("change") {
+        convertStrings()
+    }
+
+    inputText!!.addEventListener("input") {
+        convertStrings()
+    }
+}
+
 fun convertStrings() {
     val quoteSelectorValue = quoteSelector!!.value
 
@@ -13,7 +23,6 @@ fun convertStrings() {
         else -> ""
     }
 
-
     val styledLines = inputText!!.value.split('\n')
         .map { line -> "$quoteType$line$quoteType," }.toMutableList()
 
@@ -21,18 +30,6 @@ fun convertStrings() {
 
     outputText?.value = styledLines.joinToString("\n")
 }
-
-fun main() {
-    println("Hello")
-    quoteSelector!!.addEventListener("change") {
-        convertStrings()
-    }
-
-    inputText!!.addEventListener("change") {
-        convertStrings()
-    }
-}
-
 
 val inputText: HTMLTextAreaElement?
     get() = document.getElementById("inputText") as? HTMLTextAreaElement
